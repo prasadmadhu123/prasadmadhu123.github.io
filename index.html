@@ -65,14 +65,8 @@
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.2);
         }
-        .section-title {
-            @apply text-3xl md:text-4xl font-bold text-center mb-12 text-white;
-        }
-        .nav-link {
-            @apply font-semibold text-gray-300 hover:text-white transition-colors duration-300;
-        }
+        /* FIX: Removed Tailwind @apply directives which don't work with the CDN. Styles are now applied directly in the HTML. */
         .glow-button {
-            @apply inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
@@ -83,7 +77,6 @@
             transform: translateY(-2px);
         }
         .input-field {
-            @apply w-full px-5 py-4 border-none focus:outline-none rounded-lg;
             background: rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: white;
@@ -151,12 +144,12 @@
         <div class="panel md:max-w-4xl mx-auto rounded-xl">
             <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#skills" class="nav-link">Skills</a>
-                    <a href="#resume" class="nav-link">Resume</a>
-                    <a href="#certifications" class="nav-link">Certifications</a>
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#about" class="font-semibold text-gray-300 hover:text-white transition-colors duration-300">About</a>
+                    <a href="#skills" class="font-semibold text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
+                    <a href="#resume" class="font-semibold text-gray-300 hover:text-white transition-colors duration-300">Resume</a>
+                    <a href="#certifications" class="font-semibold text-gray-300 hover:text-white transition-colors duration-300">Certifications</a>
+                    <a href="#projects" class="font-semibold text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
+                    <a href="#contact" class="font-semibold text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
                 </div>
                 <a href="#schedule" class="hidden md:inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -169,14 +162,14 @@
             </nav>
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-                <a href="#about" class="block nav-link text-center py-2">About</a>
-                <a href="#skills" class="block nav-link text-center py-2">Skills</a>
-                <a href="#resume" class="block nav-link text-center py-2">Resume</a>
-                <a href="#certifications" class="block nav-link text-center py-2">Certifications</a>
-                <a href="#projects" class="block nav-link text-center py-2">Projects</a>
-                <a href="#contact" class="block nav-link text-center py-2">Contact</a>
+                <a href="#about" class="block font-semibold text-gray-300 hover:text-white transition-colors duration-300 text-center py-2">About</a>
+                <a href="#skills" class="block font-semibold text-gray-300 hover:text-white transition-colors duration-300 text-center py-2">Skills</a>
+                <a href="#resume" class="block font-semibold text-gray-300 hover:text-white transition-colors duration-300 text-center py-2">Resume</a>
+                <a href="#certifications" class="block font-semibold text-gray-300 hover:text-white transition-colors duration-300 text-center py-2">Certifications</a>
+                <a href="#projects" class="block font-semibold text-gray-300 hover:text-white transition-colors duration-300 text-center py-2">Projects</a>
+                <a href="#contact" class="block font-semibold text-gray-300 hover:text-white transition-colors duration-300 text-center py-2">Contact</a>
                 <div class="text-center pt-2">
-                     <a href="#schedule" class="glow-button w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700">
+                     <a href="#schedule" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 glow-button w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700">
                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                          Book Call
                      </a>
@@ -200,7 +193,7 @@
 
         <!-- About Section -->
         <section id="about" class="py-16 md:py-24 fade-in-section">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">About Me</h2>
             <div class="panel p-8 md:p-12 rounded-2xl">
                 <div class="grid md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-2">
@@ -218,7 +211,7 @@
         <!-- Skills Section -->
         <section id="skills" class="py-16 md:py-24 fade-in-section">
             <div class="max-w-5xl mx-auto">
-                <h2 class="section-title">My Skills</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">My Skills</h2>
                 <div class="panel py-16 rounded-2xl">
                     <div class="w-full max-w-4xl mx-auto">
                         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-12 place-items-center text-center">
@@ -264,49 +257,49 @@
 
         <!-- Resume Section -->
         <section id="resume" class="py-16 md:py-24 fade-in-section">
-            <h2 class="section-title uppercase">My Resumes</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white uppercase">My Resumes</h2>
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 justify-center">
                  <!-- Data Analyst Resume -->
                 <div class="panel p-8 rounded-2xl text-center flex flex-col items-center animated-item">
                     <i class="fas fa-chart-line text-5xl mb-4 text-teal-400"></i>
                     <h3 class="text-2xl font-bold text-white mb-2">Data Analyst</h3>
                     <p class="text-gray-300 mb-6">My resume focused on data analysis, visualization, and turning insights into action.</p>
-                    <a href="https://drive.google.com/file/d/12uoVYOlYsaAHLGLRT9BVB54H4bUe6mfR/view?usp=sharing" class="glow-button mt-auto" target="_blank" rel="noopener noreferrer">Download Resume</a>
+                    <a href="https://drive.google.com/file/d/12uoVYOlYsaAHLGLRT9BVB54H4bUe6mfR/view?usp=sharing" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 glow-button mt-auto" target="_blank" rel="noopener noreferrer">Download Resume</a>
                 </div>
                 <!-- Data Scientist Resume -->
                 <div class="panel p-8 rounded-2xl text-center flex flex-col items-center animated-item">
                     <i class="fas fa-flask text-5xl mb-4 text-violet-400"></i>
                     <h3 class="text-2xl font-bold text-white mb-2">Data Scientist</h3>
                     <p class="text-gray-300 mb-6">My resume focused on machine learning, predictive modeling, and advanced data analysis.</p>
-                    <a href="https://drive.google.com/file/d/14UmwpFkf7phbfc2eKbsLNayIuCdjDgce/view?usp=sharing" class="glow-button mt-auto" target="_blank" rel="noopener noreferrer">Download Resume</a>
+                    <a href="https://drive.google.com/file/d/14UmwpFkf7phbfc2eKbsLNayIuCdjDgce/view?usp=sharing" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 glow-button mt-auto" target="_blank" rel="noopener noreferrer">Download Resume</a>
                 </div>
             </div>
         </section>
         
         <!-- Certifications Section -->
         <section id="certifications" class="py-16 md:py-24 fade-in-section">
-            <h2 class="section-title uppercase">Certifications</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white uppercase">Certifications</h2>
             <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
                 <!-- Python Certification -->
                 <div class="panel p-8 rounded-2xl text-center flex flex-col items-center animated-item">
                     <i class="fab fa-python text-5xl mb-4 text-yellow-400"></i>
                     <h3 class="text-2xl font-bold text-white mb-2">Python (Basic)</h3>
                     <p class="text-gray-300 mb-6">Completed the HackerRank Basic Python course, covering scalar types, control flow, OOP, and built-in functions.</p>
-                    <a href="https://www.hackerrank.com/certificates/3f0d1d487520" class="glow-button mt-auto" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    <a href="https://www.hackerrank.com/certificates/3f0d1d487520" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 glow-button mt-auto" target="_blank" rel="noopener noreferrer">View Certificate</a>
                 </div>
                 <!-- SQL Certification -->
                 <div class="panel p-8 rounded-2xl text-center flex flex-col items-center animated-item">
                     <i class="fas fa-database text-5xl mb-4 text-sky-400"></i>
                     <h3 class="text-2xl font-bold text-white mb-2">SQL (Advanced)</h3>
                     <p class="text-gray-300 mb-6">Proficiency in complex queries, subqueries, and advanced functions for in-depth data analysis.</p>
-                    <a href="https://www.hackerrank.com/certificates/dbc79c70eb82" class="glow-button mt-auto" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    <a href="https://www.hackerrank.com/certificates/dbc79c70eb82" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 glow-button mt-auto" target="_blank" rel="noopener noreferrer">View Certificate</a>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
         <section id="projects" class="py-16 md:py-24 fade-in-section">
-            <h2 class="section-title">My Projects</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">My Projects</h2>
             <div class="grid md:grid-cols-2 gap-16">
                 <!-- Project 1 -->
                 <div class="panel p-2 rounded-2xl transform hover:-translate-y-2 transition-transform duration-300 animated-item">
@@ -352,7 +345,7 @@
         <!-- Contact Section -->
         <section id="contact" class="py-16 md:py-24 fade-in-section">
             <div class="max-w-2xl mx-auto text-center">
-                <h2 class="section-title">Get In Touch</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Get In Touch</h2>
                 <p class="text-gray-300 mb-8 text-lg leading-relaxed">
                     I'm always open to conversation in English, Telugu, or Hindi. Feel free to reach out about new projects, creative ideas, or opportunities to be part of an innovative team.
                 </p>
@@ -401,6 +394,15 @@
                 return slots;
             }
 
+            // Function to display messages in the scheduler UI
+            function showSchedulerMessage(message, isError = false) {
+                const timeSlotsContainer = document.getElementById('time-slots') || schedulerContainer;
+                if (timeSlotsContainer) {
+                    const messageColor = isError ? 'text-red-400' : 'text-green-400';
+                    timeSlotsContainer.innerHTML = `<div class="text-center ${messageColor} font-bold p-4">${message}</div>`;
+                }
+            }
+
             // Function to render the scheduler
             async function renderScheduler() {
                 if (!schedulerContainer) return;
@@ -434,7 +436,7 @@
 
                     if (error) {
                         console.error('Error fetching bookings:', error);
-                        timeSlotsHTML = '<div class="text-center text-red-400">Could not load availability.</div>';
+                        timeSlotsHTML = '<div id="time-slots" class="text-center text-red-400">Could not load availability.</div>';
                     } else {
                         const bookedTimes = bookings.map(b => b.booking_time);
                         timeSlotsHTML = '<div id="time-slots" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">';
@@ -456,11 +458,13 @@
 
             // Function to handle booking confirmation
             async function handleBooking() {
-                const name = document.getElementById('booking-name').value;
-                const email = document.getElementById('booking-email').value;
+                const nameInput = document.getElementById('booking-name');
+                const emailInput = document.getElementById('booking-email');
+                const name = nameInput.value;
+                const email = emailInput.value;
 
                 if (!name || !email) {
-                    alert('Please enter your name and email.');
+                    showSchedulerMessage('Please enter your name and email.', true);
                     return;
                 }
 
@@ -470,31 +474,37 @@
 
                 if (error) {
                     console.error('Error booking slot:', error);
-                    alert('Failed to book the slot. Please try again.');
+                    showSchedulerMessage('Failed to book the slot. Please try again.', true);
                 } else {
-                    alert('Booking successful! A confirmation has been sent to your email.');
-                    selectedTime = null;
-                    renderScheduler();
+                    showSchedulerMessage('Booking successful! A confirmation has been sent to your email.');
+                    setTimeout(() => {
+                        selectedDate = null;
+                        selectedTime = null;
+                        startSchedulingBtn.style.display = 'block';
+                        schedulerContainer.classList.add('hidden');
+                        schedulerContainer.innerHTML = ''; // Clear scheduler content
+                    }, 4000);
                 }
             }
             
             // Function to show the booking form
             function showBookingForm() {
                 const timeSlotsContainer = document.getElementById('time-slots');
+                if (!timeSlotsContainer) return;
                 timeSlotsContainer.innerHTML = `
                     <div class="max-w-md mx-auto text-left">
                         <p class="text-center mb-4">You selected: <strong>${selectedTime}</strong> on <strong>${selectedDate}</strong></p>
                         <div class="mb-4">
-                            <label for="booking-name" class="block mb-2">Your Name:</label>
-                            <input type="text" id="booking-name" class="input-field" required />
+                            <label for="booking-name" class="block mb-2 text-sm font-medium text-gray-300">Your Name:</label>
+                            <input type="text" id="booking-name" class="w-full px-5 py-3 border-none focus:outline-none rounded-lg input-field" required />
                         </div>
                         <div class="mb-6">
-                            <label for="booking-email" class="block mb-2">Your Email:</label>
-                            <input type="email" id="booking-email" class="input-field" required />
+                            <label for="booking-email" class="block mb-2 text-sm font-medium text-gray-300">Your Email:</label>
+                            <input type="email" id="booking-email" class="w-full px-5 py-3 border-none focus:outline-none rounded-lg input-field" required />
                         </div>
                         <div class="flex justify-center space-x-4">
-                            <button id="confirm-booking-btn" class="glow-button">Confirm Booking</button>
-                            <button id="cancel-booking-btn" class="glow-button bg-white/5">Cancel</button>
+                            <button id="confirm-booking-btn" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 glow-button">Confirm Booking</button>
+                            <button id="cancel-booking-btn" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 glow-button bg-white/5">Cancel</button>
                         </div>
                     </div>
                 `;
