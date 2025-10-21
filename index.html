@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GADDAM MADHUPRASAD - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -65,7 +64,6 @@
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.2);
         }
-        /* FIX: Removed Tailwind @apply directives which don't work with the CDN. Styles are now applied directly in the HTML. */
         .glow-button {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -75,18 +73,6 @@
             background: rgba(255, 255, 255, 0.2);
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
-        }
-        .input-field {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-        .input-field::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        .input-field:focus {
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            background: rgba(0, 0, 0, 0.3);
         }
         @keyframes bounce-subtle {
             0%, 100% {
@@ -151,10 +137,6 @@
                     <a href="#projects" class="font-semibold text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
                     <a href="#contact" class="font-semibold text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
                 </div>
-                <a href="#schedule" class="hidden md:inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                    Book Call
-                </a>
                 <span class="md:hidden text-2xl font-bold text-white">Portfolio</span>
                 <button id="mobile-menu-button" class="md:hidden text-white ml-auto p-2">
                     <i class="fas fa-bars text-2xl"></i>
@@ -168,12 +150,6 @@
                 <a href="#certifications" class="block font-semibold text-gray-300 hover:text-white transition-colors duration-300 text-center py-2">Certifications</a>
                 <a href="#projects" class="block font-semibold text-gray-300 hover:text-white transition-colors duration-300 text-center py-2">Projects</a>
                 <a href="#contact" class="block font-semibold text-gray-300 hover:text-white transition-colors duration-300 text-center py-2">Contact</a>
-                <div class="text-center pt-2">
-                     <a href="#schedule" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 glow-button w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                         Book Call
-                     </a>
-                </div>
             </div>
         </div>
     </header>
@@ -326,22 +302,6 @@
             </div>
         </section>
 
-        <!-- Schedule a Call Section -->
-        <section id="schedule" class="py-16 md:py-24 fade-in-section">
-            <div class="max-w-4xl mx-auto text-center panel p-8 md:p-12 rounded-2xl">
-                <h2 class="text-3xl font-bold mb-4">Ready to Talk?</h2>
-                <p class="text-gray-300 mb-8 text-lg">
-                    Let's connect. Pick a time that works for you, and we can discuss how my skills can benefit your team.
-                </p>
-                <div id="schedule-container">
-                    <button id="start-scheduling-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 text-lg transform hover:scale-105">Schedule a Call</button>
-                    <div id="scheduler" class="mt-8 hidden">
-                        <!-- Scheduler will be rendered here by JavaScript -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Contact Section -->
         <section id="contact" class="py-16 md:py-24 fade-in-section">
             <div class="max-w-2xl mx-auto text-center">
@@ -366,174 +326,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- SUPABASE SETUP ---
-            const supabaseUrl = 'https://aohucbfdglzochexfwgi.supabase.co'; 
-            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvaHVjYmZkZ2x6b2NoZXhmd2dpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI5NTQ5ODgsImV4cCI6MjA2ODUzMDk4OH0.o1uZJFH8dyqXeWJto3Qj7Q4hwpNO1_06uGRvhKm4M08';
-            const { createClient } = supabase;
-            const supabaseClient = createClient(supabaseUrl, supabaseKey);
-
-            // --- SCHEDULER LOGIC ---
-            const schedulerContainer = document.getElementById('scheduler');
-            const startSchedulingBtn = document.getElementById('start-scheduling-btn');
-            let selectedDate = null;
-            let selectedTime = null;
-
-            startSchedulingBtn.addEventListener('click', () => {
-                startSchedulingBtn.style.display = 'none';
-                schedulerContainer.classList.remove('hidden');
-                renderScheduler();
-            });
-
-            // Function to generate time slots (8 PM to 11 PM, 30-min intervals)
-            function generateTimeSlots() {
-                const slots = [];
-                for (let hour = 20; hour < 23; hour++) { // 20:00 (8 PM) to 22:30 (10:30 PM)
-                    slots.push(`${String(hour).padStart(2, '0')}:00`);
-                    slots.push(`${String(hour).padStart(2, '0')}:30`);
-                }
-                return slots;
-            }
-
-            // Function to display messages in the scheduler UI
-            function showSchedulerMessage(message, isError = false) {
-                const timeSlotsContainer = document.getElementById('time-slots') || schedulerContainer;
-                if (timeSlotsContainer) {
-                    const messageColor = isError ? 'text-red-400' : 'text-green-400';
-                    timeSlotsContainer.innerHTML = `<div class="text-center ${messageColor} font-bold p-4">${message}</div>`;
-                }
-            }
-
-            // Function to render the scheduler
-            async function renderScheduler() {
-                if (!schedulerContainer) return;
-                schedulerContainer.innerHTML = '<div class="text-center">Loading availability...</div>';
-                
-                const today = new Date();
-                let weekHTML = '<div class="flex justify-center space-x-2 md:space-x-4 mb-8 overflow-x-auto pb-4">';
-                for (let i = 0; i < 7; i++) {
-                    const date = new Date(today);
-                    date.setDate(today.getDate() + i);
-                    const day = date.toLocaleDateString('en-US', { weekday: 'short' });
-                    const dayNum = date.getDate();
-                    const dateString = date.toISOString().split('T')[0];
-                    weekHTML += `
-                        <button data-date="${dateString}" class="date-btn flex-shrink-0 text-center w-16 h-20 rounded-lg transition-colors ${selectedDate === dateString ? 'bg-violet-500/50' : 'bg-white/5 hover:bg-white/10'}">
-                            <div class="font-bold">${day}</div>
-                            <div class="text-2xl">${dayNum}</div>
-                        </button>
-                    `;
-                }
-                weekHTML += '</div>';
-                
-                let timeSlotsHTML = '<div id="time-slots" class="text-center text-gray-400">Please select a date to see available times.</div>';
-                
-                if (selectedDate) {
-                    const allSlots = generateTimeSlots();
-                    const { data: bookings, error } = await supabaseClient
-                        .from('bookings')
-                        .select('booking_time')
-                        .eq('booking_date', selectedDate);
-
-                    if (error) {
-                        console.error('Error fetching bookings:', error);
-                        timeSlotsHTML = '<div id="time-slots" class="text-center text-red-400">Could not load availability.</div>';
-                    } else {
-                        const bookedTimes = bookings.map(b => b.booking_time);
-                        timeSlotsHTML = '<div id="time-slots" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">';
-                        allSlots.forEach(time => {
-                            const isBooked = bookedTimes.includes(time);
-                            timeSlotsHTML += `
-                                <button data-time="${time}" class="time-slot-btn p-3 rounded-lg transition-colors ${isBooked ? 'bg-red-500/20 text-gray-500 cursor-not-allowed' : 'bg-white/5 hover:bg-white/10'}" ${isBooked ? 'disabled' : ''}>
-                                    ${time}
-                                </button>
-                            `;
-                        });
-                        timeSlotsHTML += '</div>';
-                    }
-                }
-
-                schedulerContainer.innerHTML = weekHTML + timeSlotsHTML;
-                addSchedulerEventListeners();
-            }
-
-            // Function to handle booking confirmation
-            async function handleBooking() {
-                const nameInput = document.getElementById('booking-name');
-                const emailInput = document.getElementById('booking-email');
-                const name = nameInput.value;
-                const email = emailInput.value;
-
-                if (!name || !email) {
-                    showSchedulerMessage('Please enter your name and email.', true);
-                    return;
-                }
-
-                const { data, error } = await supabaseClient
-                    .from('bookings')
-                    .insert([{ booking_date: selectedDate, booking_time: selectedTime, name, email }]);
-
-                if (error) {
-                    console.error('Error booking slot:', error);
-                    showSchedulerMessage('Failed to book the slot. Please try again.', true);
-                } else {
-                    showSchedulerMessage('Booking successful! A confirmation has been sent to your email.');
-                    setTimeout(() => {
-                        selectedDate = null;
-                        selectedTime = null;
-                        startSchedulingBtn.style.display = 'block';
-                        schedulerContainer.classList.add('hidden');
-                        schedulerContainer.innerHTML = ''; // Clear scheduler content
-                    }, 4000);
-                }
-            }
-            
-            // Function to show the booking form
-            function showBookingForm() {
-                const timeSlotsContainer = document.getElementById('time-slots');
-                if (!timeSlotsContainer) return;
-                timeSlotsContainer.innerHTML = `
-                    <div class="max-w-md mx-auto text-left">
-                        <p class="text-center mb-4">You selected: <strong>${selectedTime}</strong> on <strong>${selectedDate}</strong></p>
-                        <div class="mb-4">
-                            <label for="booking-name" class="block mb-2 text-sm font-medium text-gray-300">Your Name:</label>
-                            <input type="text" id="booking-name" class="w-full px-5 py-3 border-none focus:outline-none rounded-lg input-field" required />
-                        </div>
-                        <div class="mb-6">
-                            <label for="booking-email" class="block mb-2 text-sm font-medium text-gray-300">Your Email:</label>
-                            <input type="email" id="booking-email" class="w-full px-5 py-3 border-none focus:outline-none rounded-lg input-field" required />
-                        </div>
-                        <div class="flex justify-center space-x-4">
-                            <button id="confirm-booking-btn" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 glow-button">Confirm Booking</button>
-                            <button id="cancel-booking-btn" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 glow-button bg-white/5">Cancel</button>
-                        </div>
-                    </div>
-                `;
-                document.getElementById('confirm-booking-btn').addEventListener('click', handleBooking);
-                document.getElementById('cancel-booking-btn').addEventListener('click', () => {
-                    selectedTime = null;
-                    renderScheduler();
-                });
-            }
-
-
-            // Function to add event listeners to the scheduler buttons
-            function addSchedulerEventListeners() {
-                document.querySelectorAll('.date-btn').forEach(button => {
-                    button.addEventListener('click', () => {
-                        selectedDate = button.dataset.date;
-                        selectedTime = null;
-                        renderScheduler();
-                    });
-                });
-
-                document.querySelectorAll('.time-slot-btn').forEach(button => {
-                    button.addEventListener('click', () => {
-                        selectedTime = button.dataset.time;
-                        showBookingForm();
-                    });
-                });
-            }
-
             // --- GENERAL ANIMATIONS ---
             // Mobile menu toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
